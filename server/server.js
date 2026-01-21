@@ -19,6 +19,7 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const router = require("./routes/authRoutes");
+const courseRouter = require("./routes/courseRoutes")
 const connectDB = require('./config/db');
 
 dotenv.config();
@@ -30,6 +31,7 @@ app.use(express.json());
 connectDB();
 
 app.use("/api/auth", router);
+app.use("/api/courses", courseRouter);
 
 const PORT = process.env.PORT || 5000;
 
