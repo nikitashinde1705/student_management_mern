@@ -14,4 +14,26 @@ exports.getCourse = async(req, res) => {
         res.status(500).json({message: error.message});
     }
 }
+
+//Update Course
+exports.updateCourse = async (req, res) => {
+    try{
+        await Course.findByIdAndUpdate(req.params.id, req.body);
+        res.json({message:"Course updated successfully"});
+    }
+    catch(error){
+        res.status(500).json({message:"Course not updated"});
+    }
+}
+
+//Delete Course
+exports.deleteCourse = async(req, res) => {
+    try{    
+        await Course.findByIdAndDelete(req.params.id);
+        res.json({message:"Course deleted successfuly"});
+    }
+    catch(error){
+        res.status(500).json({message:"Course not deleted"})
+    }
+}
    
