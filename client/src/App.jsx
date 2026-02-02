@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
-// import Students from "./pages/Students";
+import Students from "./pages/Students";
 import Courses from "./pages/Courses";
 import PrivateRoute from "./routes/PrivateRoute";
 import AuthProvider from "./context/AuthContext";
@@ -17,8 +17,8 @@ const App = () => (
         <Route path="/register" element={<Register />} />
 
         <Route path="/" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
-        {/* <Route path="/students" element={<PrivateRoute><Students /></PrivateRoute>} /> */}
         <Route path="/courses" element={<PrivateRoute><Courses /></PrivateRoute>} /> 
+         <Route path="/students" element={<PrivateRoute><Students /></PrivateRoute>} />
       </Routes>
     </BrowserRouter>
   </AuthProvider>
