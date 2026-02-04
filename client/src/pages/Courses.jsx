@@ -14,9 +14,22 @@ const Courses = () => {
         setCourses(res.data);
     }
 
+    // const submit = async () => {
+    //     await addCourse({courseName});
+    // };
     const submit = async () => {
-        await addCourse({courseName});
-    };
+    if (!courseName.trim()) return; // avoid empty input
+
+    try {
+        await addCourse({ courseName });
+        setCourseName("");
+        load();  // refresh UI
+    } catch (err) {
+        console.log(err);
+    }
+};
+
+
 
     return (
         <Layout>

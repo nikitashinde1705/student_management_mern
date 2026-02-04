@@ -5,7 +5,7 @@ const role = require("../middleware/roleMiddleware");
 const {createStudent, updateStudent, deleteStudent, getStudent} = require("../controllers/studentController");
 
 //admin only
-router.post("/createcstudent",auth,role("admin"),createStudent);
+router.post("/createstudent", auth, role("admin"), createStudent);
 router.put("/:id",auth, role("admin"), updateStudent);
 router.delete("/:id",auth, role("admin"), deleteStudent);
 

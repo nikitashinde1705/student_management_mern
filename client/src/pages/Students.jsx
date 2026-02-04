@@ -24,7 +24,8 @@ const Students = () => {
 
     const loadStudents = async() => {
         const res = await getStudents();
-        setStudents(res.data.students);
+        //setStudents(res.data.students);
+        setStudents(res.data || []);
     }
 
     const loadCourses = async() => {
@@ -114,7 +115,7 @@ const Students = () => {
                     </div>
                     <div className="col-md-6">
                         <select name="" id=""
-                            className='form-contol'
+                            className='form-control'
                             value={course}
                             onChange={(e) => setCourse(e.target.value)}>
 
@@ -161,8 +162,22 @@ const Students = () => {
                                 <td>{s.phone}</td>
                                 <td>{s.course ?.courseName || "-"}</td>
                                 <td>
-                                    <button className='btn btn-warning me-2' onClick={handleEdit(s)}>Edit</button>
-                                    <button className='btn btn-danger me-2' onClick={handleDelete(s._id)}>Delete</button>
+                                    {/* <button className='btn btn-warning me-2' onClick={handleEdit(s)}>Edit</button>
+                                    <button className='btn btn-danger me-2' onClick={handleDelete(s._id)}>Delete</button> */}
+                                    <button
+  className='btn btn-warning me-2'
+  onClick={() => handleEdit(s)}
+>
+  Edit
+</button>
+
+<button
+  className='btn btn-danger me-2'
+  onClick={() => handleDelete(s._id)}
+>
+  Delete
+</button>
+
                                 </td>
                             </tr>
                         ))
